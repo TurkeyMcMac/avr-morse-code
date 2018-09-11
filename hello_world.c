@@ -6,7 +6,7 @@
 __attribute__((constructor))
 void main(void)
 {
-	static PROGMEM const char message[] = "Hello, world!";
+	static PROGMEM const char message[] = "Hello, world.";
 
 	DDRD = -1;
 
