@@ -1,6 +1,5 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
-#define F_CPU 16000000UL
 #include <util/delay.h>
 #include <stdbool.h>
 #include <stdint.h>

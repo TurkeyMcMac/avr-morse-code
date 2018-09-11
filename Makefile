@@ -2,6 +2,7 @@ binary = hello_world
 source = $(binary).c
 optimize = s
 partno-define = __AVR_ATmega328P__
+f-cpu = 16000000UL
 partno = m328p
 programmer-id = arduino
 port = /dev/ttyUSB0
@@ -9,7 +10,8 @@ port = /dev/ttyUSB0
 CC = avr-gcc
 
 $(binary): $(source)
-	$(CC) $(CFLAGS) -D$(partno-define) -O$(optimize) -o $(binary) $(source)
+	$(CC) $(CFLAGS) -D$(partno-define) -DF_CPU=$(f-cpu) -O$(optimize) -o \
+		$(binary) $(source)
 
 .PHONY: upload
 upload: $(binary)
