@@ -111,11 +111,9 @@ bool morse_encode(char c)
 		return false;
 	}
 	len = 7;
-	while (!(morse & 0b10000000)) {
-		morse <<= 1;
+	while (!(morse & 1 << len)) {
 		--len;
 	}
-	morse >>= 7 - len;
 	while (len--) {
 		LED_PORT |= LED_PIN;
 		if (morse & (1 << len)) {
