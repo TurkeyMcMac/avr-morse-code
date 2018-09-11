@@ -8,7 +8,7 @@
 #define LED_PORT PORTB
 #define LED_PIN ( _BV(5) )
 
-#define MORSE_DELAY_SCALE 100
+#define MORSE_DELAY_SCALE 200
 
 void morse_encode_message_P(const char *msg);
 
