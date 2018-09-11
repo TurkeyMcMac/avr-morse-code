@@ -14,20 +14,25 @@ void morse_encode_message(const char *msg)
 {
 	char c;
 
+	morse_encode('\x02');
 	while ((c = *msg) != '\0') {
 		morse_encode(c);
 		++msg;
 	}
+	morse_encode('\x03');
+
 }
 
 void morse_encode_message_P(const char *msg)
 {
 	char c;
 
+	morse_encode('\x02');
 	while ((c = pgm_read_byte(msg)) != '\0') {
 		morse_encode(c);
 		++msg;
 	}
+	morse_encode('\x03');
 }
 
 bool morse_encode(char c)
