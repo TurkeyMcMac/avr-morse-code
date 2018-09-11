@@ -105,12 +105,12 @@ bool morse_encode(char c)
 		return false;
 	}
 	len = 7;
-	while (!(morse & 1 << len)) {
+	while (!(morse & _BV(len))) {
 		--len;
 	}
 	while (len--) {
 		LED_PORT |= LED_PIN;
-		if (morse & (1 << len)) {
+		if (morse & _BV(len)) {
 			_delay_ms(300);
 		} else {
 			_delay_ms(100);
