@@ -8,6 +8,8 @@
 #define LED_PORT PORTB
 #define LED_PIN ( _BV(5) )
 
+#define MORSE_DELAY_SCALE 100
+
 void morse_encode_message_P(const char *msg);
 
 __attribute__((constructor))
@@ -99,7 +101,7 @@ bool morse_encode(char c)
 	uint8_t morse, len;
 
 	if (c == ' ') {
-		_delay_ms(400);
+		_delay_ms(4 * MORSE_DELAY_SCALE);
 		return true;
 	}
 	morse = pgm_read_byte(morse_table + c);
@@ -113,14 +115,14 @@ bool morse_encode(char c)
 	while (len--) {
 		LED_PORT |= LED_PIN;
 		if (morse & _BV(len)) {
-			_delay_ms(300);
+			_delay_ms(3 * MORSE_DELAY_SCALE);
 		} else {
-			_delay_ms(100);
+			_delay_ms(1 * MORSE_DELAY_SCALE);
 		}
 		LED_PORT &= ~LED_PIN;
-		_delay_ms(100);
+		_delay_ms(1 * MORSE_DELAY_SCALE);
 	}
-	_delay_ms(200);
+	_delay_ms(2 * MORSE_DELAY_SCALE);
 
 	return true;
 }
