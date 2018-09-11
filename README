@@ -6,3 +6,8 @@ binary, you'll need some other stuff. Here is how to get the dependencies from
 apt, I think:
 
 sudo apt install gcc-avr binutils-avr avr-libc avrdude
+
+This is mostly just an experiment, but I have tried to implement a good chunk of
+the ITU morse code standard. I have all the printable characters specified, plus
+(starting signal) and (end of work) characters. I decided not to bother trying
+to map every control character from morse code to ASCII.

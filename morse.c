@@ -86,8 +86,32 @@ bool morse_encode(char c)
 		MORSE('x', 1001),
 		MORSE('y', 1011),
 		MORSE('z', 1100),
+		MORSE('1', 01111),
+		MORSE('2', 00111),
+		MORSE('3', 00011),
+		MORSE('4', 00001),
+		MORSE('5', 00000),
+		MORSE('6', 10000),
+		MORSE('7', 11000),
+		MORSE('8', 11100),
+		MORSE('9', 11110),
+		MORSE('0', 11111),
+		MORSE('.', 010101),
 		MORSE(',', 110011),
-		MORSE('!', 101011),
+		MORSE(':', 111000),
+		MORSE('?', 001100),
+		MORSE('\'', 011110),
+		MORSE('-', 100001),
+		MORSE('/', 10010),
+		MORSE('(', 10110),
+		MORSE(')', 101101),
+		MORSE('"', 010010),
+		MORSE('=', 10001),
+		MORSE('+', 01010),
+		MORSE('\x03', 000101), // End of Text character
+		MORSE('\x02', 10101), // Start of Text character
+		MORSE('*', 1001),
+		MORSE('@', 011010),
 	};
 #	undef MORSE
 
