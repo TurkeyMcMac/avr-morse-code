@@ -1,0 +1,8 @@
+This code is for the SparkFun RedBoard Arduino with the ATmega328P
+microcontroller and the Optiboot bootloader. I'm not sure which parts of that
+information are relevant. I've included a pre-compiled binary in the repository.
+To upload it, you need to install avrdude from apt. To compile and view the
+binary, you'll need some other stuff. Here is how to get the dependencies from
+apt, I think:
+
+sudo apt install gcc-avr binutils-avr avr-libc avrdude
