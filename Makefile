@@ -1,5 +1,5 @@
 binary = hello_world
-source = $(binary).c
+source = $(binary).c morse.c
 optimize = s
 partno-define = __AVR_ATmega328P__
 f-cpu = 16000000UL
@@ -9,7 +9,7 @@ port = /dev/ttyUSB0
 
 CC = avr-gcc
 
-$(binary): $(source)
+$(binary): $(source) morse.h
 	$(CC) $(CFLAGS) -D$(partno-define) -DF_CPU=$(f-cpu) -O$(optimize) -o \
 		$(binary) $(source)
 
