@@ -10,31 +10,25 @@
 
 bool morse_encode(char c);
 
-void display(char c)
-{
-	morse_encode(c);
-	_delay_ms(300);
-}
-
 __attribute__((constructor))
 void main(void)
 {
 	DDRD = -1;
 
 	while(1) {
-		display('H');
-		display('e');
-		display('l');
-		display('l');
-		display('o');
-		display(',');
-		display(' ');
-		display('w');
-		display('o');
-		display('r');
-		display('l');
-		display('d');
-		display('!');
+		morse_encode('H');
+		morse_encode('e');
+		morse_encode('l');
+		morse_encode('l');
+		morse_encode('o');
+		morse_encode(',');
+		morse_encode(' ');
+		morse_encode('w');
+		morse_encode('o');
+		morse_encode('r');
+		morse_encode('l');
+		morse_encode('d');
+		morse_encode('!');
 		_delay_ms(2000);
 	}
 }
