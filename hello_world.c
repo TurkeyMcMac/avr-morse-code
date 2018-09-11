@@ -8,28 +8,30 @@
 #define LED_PORT PORTB
 #define LED_PIN ( _BV(5) )
 
-bool morse_encode(char c);
+void morse_encode_message_P(const char *msg);
 
 __attribute__((constructor))
 void main(void)
 {
+	static PROGMEM const char message[] = "Hello, world!";
+
 	DDRD = -1;
 
 	while(1) {
-		morse_encode('H');
-		morse_encode('e');
-		morse_encode('l');
-		morse_encode('l');
-		morse_encode('o');
-		morse_encode(',');
-		morse_encode(' ');
-		morse_encode('w');
-		morse_encode('o');
-		morse_encode('r');
-		morse_encode('l');
-		morse_encode('d');
-		morse_encode('!');
+		morse_encode_message_P(message);
 		_delay_ms(2000);
+	}
+}
+
+bool morse_encode(char c);
+
+void morse_encode_message_P(const char *msg)
+{
+	char c;
+
+	while ((c = pgm_read_byte(msg)) != '\0') {
+		morse_encode(c);
+		++msg;
 	}
 }
 
