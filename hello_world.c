@@ -3,7 +3,6 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 
-__attribute__((constructor))
 void main(void)
 {
 	static PROGMEM const char message[] = "Hello, world.";
